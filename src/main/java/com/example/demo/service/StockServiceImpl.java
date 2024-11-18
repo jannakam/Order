@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.bo.CreateStockRequest;
-import com.example.demo.bo.UpdateStockResponse;
+import com.example.demo.bo.CreateOrderRequest;
+import com.example.demo.bo.OrderResponse;
 import com.example.demo.entity.StockEntity;
 import com.example.demo.repository.StockRepository;
 import org.springframework.stereotype.Service;
@@ -16,10 +16,10 @@ public class StockServiceImpl implements StockService{
     }
 
     @Override
-    public UpdateStockResponse updateStock(CreateStockRequest request) {
+    public OrderResponse updateStock(CreateOrderRequest request) {
         System.out.println("Inside update inventory for order " + request);
 
-        UpdateStockResponse orderStatus = new UpdateStockResponse();
+        OrderResponse orderStatus = new OrderResponse();
 
         try {
             Iterable<StockEntity> inventories = repository.findByItem(request.getItem());
@@ -48,7 +48,7 @@ public class StockServiceImpl implements StockService{
     }
 
     @Override
-    public void addItems(CreateStockRequest stock) {
+    public void addItems(CreateOrderRequest stock) {
         Iterable<StockEntity> items = repository.findByItem(stock.getItem());
 
         if (items.iterator().hasNext()) {

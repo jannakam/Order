@@ -1,11 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.bo.CreateStockRequest;
-import com.example.demo.bo.UpdateStockResponse;
+import com.example.demo.bo.CreateOrderRequest;
+import com.example.demo.bo.OrderResponse;
 
 public interface StockService {
 
-    UpdateStockResponse updateStock(CreateStockRequest request);
+    OrderResponse updateStock(CreateOrderRequest request);
 
-    void addItems(CreateStockRequest stock);
+    void addItems(CreateOrderRequest stock);
 }
